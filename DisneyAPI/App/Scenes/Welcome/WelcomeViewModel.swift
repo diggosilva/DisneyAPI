@@ -16,7 +16,6 @@ enum WelcomeViewControllerStates {
 class WelcomeViewModel {
     var state: Bindable<WelcomeViewControllerStates> = Bindable(value: .loading)
     
-    
     func loadData() {
         
     }
