@@ -10,6 +10,7 @@ import UIKit
 class FeedViewController: UIViewController {
     
     let feedView = FeedView()
+    let viewModel = FeedViewModel()
     
     override func loadView() {
         super.loadView()
@@ -20,6 +21,7 @@ class FeedViewController: UIViewController {
         super.viewDidLoad()
         setNavBar()
         setDelegatesAndDataSources()
+        viewModel.fetchRequest()
     }
     
     private func setNavBar() {
@@ -35,7 +37,7 @@ class FeedViewController: UIViewController {
 
 extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 50
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
