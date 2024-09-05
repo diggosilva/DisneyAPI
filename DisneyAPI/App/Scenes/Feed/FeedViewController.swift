@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class FeedViewController: UIViewController {
     
@@ -32,6 +33,14 @@ class FeedViewController: UIViewController {
     private func setDelegatesAndDataSources() {
         feedView.tableView.delegate = self
         feedView.tableView.dataSource = self
+    }
+    
+    private func showFandom(url: String) {
+        guard let url = URL(string: url) else { return }
+        let config = SFSafariViewController.Configuration()
+        config.entersReaderIfAvailable = true
+        let vc = SFSafariViewController(url: url, configuration: config)
+        present(vc, animated: true)
     }
     
     private func handleStates() {
@@ -74,5 +83,7 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let url = viewModel.cellForRowAt(indexPath: indexPath).sourceUrl
+        showFandom(url: url)
     }
 }

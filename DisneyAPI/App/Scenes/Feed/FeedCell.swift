@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class FeedCell: UITableViewCell {
     static let identifier = "FeedCell"
@@ -15,7 +16,6 @@ class FeedCell: UITableViewCell {
         iv.translatesAutoresizingMaskIntoConstraints = false
         iv.contentMode = .scaleAspectFill
         iv.image = UIImage(systemName: "person")
-        iv.backgroundColor = .green
         iv.clipsToBounds = true
         iv.layer.cornerRadius = 5
         return iv
@@ -59,6 +59,9 @@ class FeedCell: UITableViewCell {
     }
     
     func configure(movie: FeedModel) {
+        guard let url = URL(string: movie.movieImage) else { return }
+        
+        movieImage.sd_setImage(with: url)
         nameActorLabel.text = "Ator: \(movie.nomeAtor)"
         dateCreatedLabel.text = "Lançado: \(formatDateToBrazilian(dateString: movie.dateCreated))"
     }

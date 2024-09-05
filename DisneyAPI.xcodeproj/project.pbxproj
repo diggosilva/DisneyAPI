@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40AA0E3FEFF26F0A9AC459F7 /* Pods_DisneyAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AC19250EE166CC9B4AB005E /* Pods_DisneyAPI.framework */; };
 		928E413F2C8A1235000F636F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928E413E2C8A1235000F636F /* AppDelegate.swift */; };
 		928E41412C8A1235000F636F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928E41402C8A1235000F636F /* SceneDelegate.swift */; };
 		928E41432C8A1235000F636F /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928E41422C8A1235000F636F /* WelcomeViewController.swift */; };
@@ -26,6 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		48BD629174D2BC673B20A631 /* Pods-DisneyAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DisneyAPI.debug.xcconfig"; path = "Target Support Files/Pods-DisneyAPI/Pods-DisneyAPI.debug.xcconfig"; sourceTree = "<group>"; };
+		6AC19250EE166CC9B4AB005E /* Pods_DisneyAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DisneyAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		75CDC0E0C03A0F02B8446A90 /* Pods-DisneyAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DisneyAPI.release.xcconfig"; path = "Target Support Files/Pods-DisneyAPI/Pods-DisneyAPI.release.xcconfig"; sourceTree = "<group>"; };
 		928E413B2C8A1235000F636F /* DisneyAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DisneyAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		928E413E2C8A1235000F636F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		928E41402C8A1235000F636F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,17 +55,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40AA0E3FEFF26F0A9AC459F7 /* Pods_DisneyAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A852237D6B0F9F984670752 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				48BD629174D2BC673B20A631 /* Pods-DisneyAPI.debug.xcconfig */,
+				75CDC0E0C03A0F02B8446A90 /* Pods-DisneyAPI.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		3AFC531AA550A84CF5282C3A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6AC19250EE166CC9B4AB005E /* Pods_DisneyAPI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		928E41322C8A1235000F636F = {
 			isa = PBXGroup;
 			children = (
 				928E413D2C8A1235000F636F /* DisneyAPI */,
 				928E413C2C8A1235000F636F /* Products */,
+				2A852237D6B0F9F984670752 /* Pods */,
+				3AFC531AA550A84CF5282C3A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -168,9 +192,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 928E414F2C8A1236000F636F /* Build configuration list for PBXNativeTarget "DisneyAPI" */;
 			buildPhases = (
+				269BD3D0EDD663720B28EF24 /* [CP] Check Pods Manifest.lock */,
 				928E41372C8A1235000F636F /* Sources */,
 				928E41382C8A1235000F636F /* Frameworks */,
 				928E41392C8A1235000F636F /* Resources */,
+				75CC3534AB6C17C95CE08DA0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -225,6 +251,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		269BD3D0EDD663720B28EF24 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DisneyAPI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		75CC3534AB6C17C95CE08DA0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DisneyAPI/Pods-DisneyAPI-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DisneyAPI/Pods-DisneyAPI-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DisneyAPI/Pods-DisneyAPI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		928E41372C8A1235000F636F /* Sources */ = {
@@ -299,7 +367,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -362,7 +430,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -383,6 +451,7 @@
 		};
 		928E41502C8A1236000F636F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48BD629174D2BC673B20A631 /* Pods-DisneyAPI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -409,6 +478,7 @@
 		};
 		928E41512C8A1236000F636F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75CDC0E0C03A0F02B8446A90 /* Pods-DisneyAPI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

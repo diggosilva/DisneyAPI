@@ -8,6 +8,8 @@
 import Foundation
 
 struct FeedModel {
+    let movieImage: String
     let nomeAtor: String
     let dateCreated: String
+    let sourceUrl: String
 }
