@@ -11,7 +11,8 @@ class FeedView: UIView {
     lazy var tableView: UITableView = {
         let tv = UITableView()
         tv.translatesAutoresizingMaskIntoConstraints = false
-        tv.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tv.register(FeedCell.self, forCellReuseIdentifier: FeedCell.identifier)
+        tv.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         return tv
     }()
     

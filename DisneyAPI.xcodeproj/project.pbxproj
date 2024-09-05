@@ -18,6 +18,7 @@
 		928E415D2C8A1C8F000F636F /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928E415C2C8A1C8F000F636F /* WelcomeView.swift */; };
 		928E415F2C8A1FA5000F636F /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928E415E2C8A1FA5000F636F /* FeedViewController.swift */; };
 		928E41632C8A24CD000F636F /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928E41622C8A24CD000F636F /* FeedView.swift */; };
+		928E41652C8A2BB4000F636F /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928E41642C8A2BB4000F636F /* FeedCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		928E415C2C8A1C8F000F636F /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		928E415E2C8A1FA5000F636F /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		928E41622C8A24CD000F636F /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		928E41642C8A2BB4000F636F /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 			children = (
 				928E415E2C8A1FA5000F636F /* FeedViewController.swift */,
 				928E41622C8A24CD000F636F /* FeedView.swift */,
+				928E41642C8A2BB4000F636F /* FeedCell.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				928E41592C8A165C000F636F /* WelcomeViewModel.swift in Sources */,
+				928E41652C8A2BB4000F636F /* FeedCell.swift in Sources */,
 				928E41632C8A24CD000F636F /* FeedView.swift in Sources */,
 				928E415B2C8A1C01000F636F /* Extensions.swift in Sources */,
 				928E41432C8A1235000F636F /* WelcomeViewController.swift in Sources */,
