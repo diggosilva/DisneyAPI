@@ -9,18 +9,28 @@ import UIKit
 
 class WelcomeViewController: UIViewController {
     
+    let welcomeView = WelcomeView()
     let viewModel = WelcomeViewModel()
+    
+    override func loadView() {
+        super.loadView()
+        view = welcomeView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavBar()
+        setDelegatesAndDataSources()
         handleStates()
         viewModel.loadData()
     }
     
     private func setNavBar() {
-        title = "Disney API"
-        view.backgroundColor = .white
+        setNavBar(text: " Disney API")
+    }
+    
+    private func setDelegatesAndDataSources() {
+        welcomeView.delegate = self
     }
     
     private func handleStates() {
@@ -47,5 +57,11 @@ class WelcomeViewController: UIViewController {
     private func showErrorState() {
         
     }
-    
+}
+
+extension WelcomeViewController: WelcomeViewDelegate {
+    func didTapButton() {
+        let feedVC = FeedViewController()
+        navigationController?.pushViewController(feedVC, animated: true)
+    }
 }
