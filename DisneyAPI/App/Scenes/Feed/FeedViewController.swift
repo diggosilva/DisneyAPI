@@ -21,6 +21,7 @@ class FeedViewController: UIViewController {
         super.viewDidLoad()
         setNavBar()
         setDelegatesAndDataSources()
+        handleStates()
         viewModel.fetchRequest()
     }
     
@@ -33,15 +34,41 @@ class FeedViewController: UIViewController {
         feedView.tableView.dataSource = self
     }
     
+    private func handleStates() {
+        viewModel.state.bind { states in
+            switch states {
+            case .loading:
+                return self.showLoadingState()
+            case .loaded:
+                return self.showLoadedState()
+            case .error:
+                return self.showErrorState()
+            }
+        }
+    }
+    
+    private func showLoadingState() {
+        view.removeFromSuperview()
+    }
+    
+    private func showLoadedState() {
+        feedView.spinner.stopAnimating()
+        feedView.tableView.reloadData()
+    }
+    
+    private func showErrorState() {
+        print("Erroooooooouuuuuuu!!!")
+    }
 }
 
 extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return viewModel.numberOfRowsInSection()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FeedCell.identifier, for: indexPath) as? FeedCell else { return UITableViewCell() }
+        cell.configure(movie: viewModel.cellForRowAt(indexPath: indexPath))
         return cell
     }
     

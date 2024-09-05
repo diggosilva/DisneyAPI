@@ -8,11 +8,20 @@
 import UIKit
 
 class FeedView: UIView {
+    lazy var spinner: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView(style: .large)
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.startAnimating()
+        spinner.hidesWhenStopped = true
+        return spinner
+    }()
+    
     lazy var tableView: UITableView = {
         let tv = UITableView()
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.register(FeedCell.self, forCellReuseIdentifier: FeedCell.identifier)
         tv.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        tv.rowHeight = 100
         return tv
     }()
     
@@ -32,11 +41,14 @@ class FeedView: UIView {
     
     private func setHierarchy () {
         backgroundColor = .white
-        addSubview(tableView)
+        addSubviews([tableView, spinner])
     }
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
+            spinner.centerXAnchor.constraint(equalTo: centerXAnchor),
+            spinner.centerYAnchor.constraint(equalTo: centerYAnchor),
+            
             tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),

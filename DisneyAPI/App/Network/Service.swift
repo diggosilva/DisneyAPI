@@ -27,7 +27,7 @@ final class Service: ServiceProtocol {
                     var feedModel: [FeedModel] = []
                     
                     for movie in feedResponse.data {
-                        feedModel.append(FeedModel(nomeFilme: movie.films.joined(separator: ", "), nomeAtor: movie.name))
+                        feedModel.append(FeedModel(nomeAtor: movie.name, dateCreated: movie.createdAt))
                         print("RESPONSE: \(feedResponse)")
                     }
                     onSuccess(feedModel)

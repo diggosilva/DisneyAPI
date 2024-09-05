@@ -21,27 +21,27 @@ class FeedCell: UITableViewCell {
         return iv
     }()
     
-    lazy var nameMovieLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Nome do Filme"
-        label.font = .preferredFont(forTextStyle: .headline)
-        label.numberOfLines = 2
-        label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.6
-        return label
-    }()
-    
     lazy var nameActorLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Nome do Personagem"
+        label.font = .preferredFont(forTextStyle: .headline)
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.6
+        label.numberOfLines = 2
+        return label
+    }()
+    
+    lazy var dateCreatedLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "01/01/0001"
         label.font = .preferredFont(forTextStyle: .subheadline)
         return label
     }()
     
     lazy var stackView: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [nameMovieLabel, nameActorLabel])
+        let stack = UIStackView(arrangedSubviews: [nameActorLabel, dateCreatedLabel])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.distribution = .fillEqually
@@ -58,6 +58,11 @@ class FeedCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func configure(movie: FeedModel) {
+        nameActorLabel.text = "Ator: \(movie.nomeAtor)"
+        dateCreatedLabel.text = "Lançado: \(formatDateToBrazilian(dateString: movie.dateCreated))"
+    }
+    
     private func setupView() {
         setHierarchy()
         setConstraints()
@@ -69,12 +74,11 @@ class FeedCell: UITableViewCell {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            movieImage.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             movieImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            movieImage.centerYAnchor.constraint(equalTo: centerYAnchor),
             movieImage.widthAnchor.constraint(equalToConstant: 60),
             movieImage.heightAnchor.constraint(equalToConstant: 80),
             movieImage.heightAnchor.constraint(greaterThanOrEqualToConstant: 80),
-            movieImage.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             
             stackView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             stackView.leadingAnchor.constraint(equalTo: movieImage.trailingAnchor, constant: 10),

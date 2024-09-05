@@ -52,7 +52,7 @@ extension UIViewController {
 
 func formatDateToBrazilian(dateString: String) -> String {
     let inputFormatter = DateFormatter()
-    inputFormatter.dateFormat = "yyyy-MM-dd"
+    inputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
     
     guard let date = inputFormatter.date(from: dateString) else {
         return dateString
